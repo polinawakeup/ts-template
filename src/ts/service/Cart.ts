@@ -10,4 +10,21 @@ export default class Cart {
     get items(): Buyable[] {
         return [...this._items]; 
     }
+
+    getTotalSumWithoutDiscount(): number {
+        return this._items.reduce((acc: number, item: Buyable) => {
+            acc += item.price;
+            return acc;
+        }, 0)
+    }
+
+    getTotalSum(discount: number): number {
+        const rate = 1 - (discount / 100);
+        return this.getTotalSumWithoutDiscount() * rate;
+    }
+
+    deleteItem(id: number): void {
+        const targetIndex = this._items.findIndex((item: Buyable) => item.id === id);
+        this._items.splice(targetIndex, 1);
+    }
 }

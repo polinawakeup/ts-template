@@ -11,3 +11,5 @@ cart.add(new MusicAlbum(1008, 'Meteora', 'Linkin Park', 900));
 cart.add(new Movie(1010, 'Sinners', 3900, 2025, 'USA', 'All of us are sinners', ['horor', 'musicle'], 137));
 
 console.log(cart.items);
+console.log(cart.getTotalSumWithoutDiscount());
+console.log(cart.getTotalSum(20));
